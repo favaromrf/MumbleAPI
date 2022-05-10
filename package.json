@@ -4,7 +4,7 @@
   "description": "MumbleAPI",
   "main": "index.js",
   "scripts": {
-    "test": "python manage.py test article"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
