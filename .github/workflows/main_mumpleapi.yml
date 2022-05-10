@@ -22,15 +22,15 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v1
       with:
-        registry: https://infocotecnologiaacr.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_dc92092558e54f818a9a06628211d595 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_a16e0ea43534491da6ff8caf1ca08989 }}
+        registry: https://index.docker.io/v1/
+        username: ${{ secrets.AzureAppService_ContainerUsername_7d83b8abc52046ddafb5fc0d5cf40b26 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_9da6c7d956484a7094d1d79c8186fc5e }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: infocotecnologiaacr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_dc92092558e54f818a9a06628211d595 }}/mumbleapi:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_7d83b8abc52046ddafb5fc0d5cf40b26 }}/mumbleapi:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'mumpleapi'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_0c159d041a534c3f8f645b989efcf158 }}
-        images: 'infocotecnologiaacr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_dc92092558e54f818a9a06628211d595 }}/mumbleapi:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_477fbb72693f4a70a2704e0f1fc53ce3 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_7d83b8abc52046ddafb5fc0d5cf40b26 }}/mumbleapi:${{ github.sha }}'
