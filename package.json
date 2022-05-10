@@ -4,8 +4,7 @@
   "description": "MumbleAPI",
   "main": "index.js",
   "scripts": {
-    "bump-version": "npm version patch",
-    "test": "mocha --recursive test"
+    "test": "mocha --reporter list"
   },
   "repository": {
     "type": "git",
